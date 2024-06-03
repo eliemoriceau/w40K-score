@@ -88,6 +88,12 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "https://eliemoriceau.github.io"
+          }
         }
       }
     }
