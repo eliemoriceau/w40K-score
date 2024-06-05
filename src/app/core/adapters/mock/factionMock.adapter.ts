@@ -4,9 +4,14 @@ import { faction } from '@core/models';
 export class FactionMockAdapter extends FactionGateway {
   private factionsBase: faction[] = [];
 
-  constructor(factions: faction[]) {
-    this.factionsBase = factions;
+  constructor();
+  constructor(factions: faction[]);
+
+  constructor(factions?: faction[]) {
     super();
+    if (factions) {
+      this.factionsBase = factions;
+    }
   }
 
   createFaction(faction: faction): Promise<void> {
