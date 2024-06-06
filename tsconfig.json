@@ -37,7 +37,8 @@
       "@directives/*": ["./src/app/directives/*"],
       "@utils/*": ["./src/app/utils/*"],
       "@config/*": ["./src/app/config/*"],
-      "@assets/*": ["./src/assets/*"]
+      "@assets/*": ["./src/assets/*"],
+      "@mocks/*": ["./src/mocks/*"],
     }
   },
   "angularCompilerOptions": {

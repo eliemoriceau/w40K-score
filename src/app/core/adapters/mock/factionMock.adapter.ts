@@ -1,8 +1,9 @@
 import { FactionGateway } from '@core/ports';
 import { faction } from '@core/models';
+import { factionsMock } from '@mocks/faction.mock';
 
 export class FactionMockAdapter extends FactionGateway {
-  private factionsBase: faction[] = [];
+  private factionsBase: faction[] = factionsMock;
 
   constructor();
   constructor(factions: faction[]);
