@@ -1,6 +1,6 @@
-import { faction } from '@core/models';
+import { Faction } from '@core/models';
 
-export const factionsMock: faction[] = [
+export const factionsMock: Faction[] = [
   {
     description:
       'Sonic showers experiment on flight at deep space!Technically, indeed.Why does the admiral resist? Red alert, carnivorous procedure! Tribbles are the planets of the clear honor. Neutral, harmless species proudly love a biological, strange spacecraft.',
