@@ -1,12 +1,12 @@
 <form class="max-w-sm mx-auto">
   <select
     (change)="onFactionChange($event)"
-    [value]="selectedFaction()?.id"
+    [formControl]="control"
     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
   >
+    <option selected>Sélectionner une faction</option>
     @for (faction of factions(); track faction.id) {
       <option [value]="faction.id">{{ faction.name }}</option>
     }
   </select>
-  {{selectedFaction()?.name}}
 </form>

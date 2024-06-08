@@ -1,16 +1,17 @@
-import { Component, input, output } from '@angular/core';
+import { Component, Input, input, output } from '@angular/core';
 import { Faction } from '@core/models';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-faction-selector',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './faction-selector.component.html',
   styleUrl: './faction-selector.component.css',
 })
 export class FactionSelectorComponent {
   factions = input.required<Faction[]>();
-  selectedFaction = input.required<Faction | undefined>();
+  @Input() control!: FormControl;
   change = output<Faction>();
 
   onFactionChange(event: Event) {
