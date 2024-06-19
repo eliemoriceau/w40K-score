@@ -5,16 +5,23 @@ import {
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
+  Validators,
 } from '@angular/forms';
 import { FactionsService } from '@core/services/factions.service';
 import { patchState } from '@ngrx/signals';
 import { PlayerOneStore } from '@core/store/player-one.store';
 import { PlayerTwoStore } from '@core/store/player-two.store';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-modal-pre-game',
   standalone: true,
-  imports: [FactionSelectorComponent, ReactiveFormsModule, FormsModule],
+  imports: [
+    FactionSelectorComponent,
+    ReactiveFormsModule,
+    FormsModule,
+    NgClass,
+  ],
   templateUrl: './modal-pre-game.component.html',
   styleUrl: './modal-pre-game.component.css',
 })
@@ -30,11 +37,15 @@ export class ModalPreGameComponent {
     'Tactique',
   );
 
-  private attName: FormControl = new FormControl('');
-  private defName: FormControl = new FormControl('');
+  private attName: FormControl = new FormControl('', [Validators.required]);
+  private defName: FormControl = new FormControl('', [Validators.required]);
 
-  protected defFaction: FormControl = new FormControl<number | null>(null);
-  protected attFaction: FormControl = new FormControl<number | null>(null);
+  protected defFaction: FormControl = new FormControl<number | null>(null, [
+    Validators.required,
+  ]);
+  protected attFaction: FormControl = new FormControl<number | null>(null, [
+    Validators.required,
+  ]);
 
   playerOneForm = new FormGroup({
     name: this.attName,
@@ -70,4 +81,6 @@ export class ModalPreGameComponent {
       if (value) patchState(this.playerTwoStore, { secondaire: value });
     });
   }
+
+  protected readonly console = console;
 }

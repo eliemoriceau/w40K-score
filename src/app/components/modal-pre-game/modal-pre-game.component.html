@@ -42,18 +42,18 @@
             <h2>Attaquant</h2>
             <input class="input" formControlName="name"/>
             <app-faction-selector [factions]="factionService.factions()" [control]="attFaction" />
-            <div>
-              <label><input type="radio" value="Tactique" formControlName="secondaire" >Tactique</label>
-              <label><input type="radio" value="Fixe" formControlName="secondaire">Fixe</label>
+            <div class="flex justify-around">
+              <label class="p-1 flex items-center gap-1"><input type="radio" value="Tactique" formControlName="secondaire" >Tactique</label>
+              <label class="p-1 flex items-center gap-1"><input type="radio" value="Fixe" formControlName="secondaire">Fixe</label>
             </div>
           </div>
           <div class="flex flex-col gap-3" [formGroup]="playerTwoForm">
             <h2 >Défenseur</h2>
             <input class="input" formControlName="name"/>
             <app-faction-selector [factions]="factionService.factions()" [control]="defFaction"/>
-            <div>
-              <label><input type="radio" value="Tactique" formControlName="secondaire" >Tactique</label>
-              <label><input type="radio" value="Fixe" formControlName="secondaire">Fixe</label>
+            <div class="flex justify-around">
+              <label class="p-1 flex items-center gap-1"><input type="radio" value="Tactique" formControlName="secondaire" >Tactique</label>
+              <label class="p-1 flex items-center gap-1"><input type="radio" value="Fixe" formControlName="secondaire">Fixe</label>
             </div>
           </div>
         </div>
@@ -65,7 +65,10 @@
         <button
           data-modal-hide="default-modal"
           type="button"
+          [disabled]="!playerOneForm.valid && !playerTwoForm.valid"
+          (click)="console.log(!playerOneForm.valid && !playerTwoForm.valid)"
           class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          [ngClass]="{'bg-gray-300 text-white-400 cursor-not-allowed': !playerOneForm.valid && !playerTwoForm.valid}"
         >
           Commencer
         </button>
