@@ -3,11 +3,12 @@ import { ModalPreGameComponent } from '@app/components/modal-pre-game/modal-pre-
 import { FactionSelectorComponent } from '@app/components/faction-selector/faction-selector.component';
 import { FactionsService } from '@core/services/factions.service';
 import { Faction } from '@core/models';
+import { GameComponent } from '@app/components/game/game.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ModalPreGameComponent, FactionSelectorComponent],
+  imports: [ModalPreGameComponent, FactionSelectorComponent, GameComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })

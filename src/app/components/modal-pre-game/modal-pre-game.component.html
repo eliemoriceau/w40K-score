@@ -40,13 +40,13 @@
         <div class="flex flex-row justify-around">
           <div class="flex flex-col gap-3">
             <h2>Attaquant</h2>
-            <input class="input" [formControl]="attName" />
-            <app-faction-selector [factions]="factionService.factions()" [control]="attFaction"/>
+            <input class="input" [formControl]="attName" (change)="setNamePlayerOne($event)" />
+            <app-faction-selector [factions]="factionService.factions()" [control]="attFaction" (change)="setFactionPlayerOne($event)"/>
           </div>
           <div class="flex flex-col gap-3">
             <h2 >Défenseur</h2>
-            <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" [formControl]="defName" />
-            <app-faction-selector [factions]="factionService.factions()" [control]="defFaction"/>
+            <input class="input" [formControl]="defName" (change)="setNamePlayerTwo($event)"/>
+            <app-faction-selector [factions]="factionService.factions()" [control]="defFaction" (change)="setFactionPlayerTwo($event)" />
           </div>
         </div>
       </div>

@@ -12,7 +12,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 export class FactionSelectorComponent {
   factions = input.required<Faction[]>();
   @Input() control!: FormControl;
-  change = output<Faction>();
+  change = output<number>();
 
   onFactionChange(event: Event) {
     const selectElement = event.target as HTMLSelectElement;
@@ -23,6 +23,6 @@ export class FactionSelectorComponent {
     if (!selectedFaction) {
       return;
     }
-    this.change.emit(selectedFaction);
+    this.change.emit(selectedFactionId);
   }
 }
