@@ -36,20 +36,28 @@
         </button>
       </div>
       <!-- Modal body -->
-      <div class="p-4 md:p-5 space-y-4">
+      <form class="p-4 md:p-5 space-y-4" #myFormRef>
         <div class="flex flex-row justify-around">
-          <div class="flex flex-col gap-3">
+          <div class="flex flex-col gap-3" [formGroup]="playerOneForm">
             <h2>Attaquant</h2>
-            <input class="input" [formControl]="attName" (change)="setNamePlayerOne($event)" />
-            <app-faction-selector [factions]="factionService.factions()" [control]="attFaction" (change)="setFactionPlayerOne($event)"/>
+            <input class="input" formControlName="name"/>
+            <app-faction-selector [factions]="factionService.factions()" [control]="attFaction" />
+            <div>
+              <label><input type="radio" value="Tactique" formControlName="secondaire" >Tactique</label>
+              <label><input type="radio" value="Fixe" formControlName="secondaire">Fixe</label>
+            </div>
           </div>
-          <div class="flex flex-col gap-3">
+          <div class="flex flex-col gap-3" [formGroup]="playerTwoForm">
             <h2 >Défenseur</h2>
-            <input class="input" [formControl]="defName" (change)="setNamePlayerTwo($event)"/>
-            <app-faction-selector [factions]="factionService.factions()" [control]="defFaction" (change)="setFactionPlayerTwo($event)" />
+            <input class="input" formControlName="name"/>
+            <app-faction-selector [factions]="factionService.factions()" [control]="defFaction"/>
+            <div>
+              <label><input type="radio" value="Tactique" formControlName="secondaire" >Tactique</label>
+              <label><input type="radio" value="Fixe" formControlName="secondaire">Fixe</label>
+            </div>
           </div>
         </div>
-      </div>
+      </form>
       <!-- Modal footer -->
       <div
         class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600"
@@ -58,7 +66,6 @@
           data-modal-hide="default-modal"
           type="button"
           class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          (click)="validateGame()"
         >
           Commencer
         </button>
