@@ -1,5 +1,4 @@
-import { signalStore, withState } from '@ngrx/signals';
-import { Faction } from '@core/models';
+import { signalStore, withMethods, withState } from '@ngrx/signals';
 
 export type PlayerState = {
   name: string;
@@ -16,4 +15,13 @@ const initialState: PlayerState = {
 export const PlayerOneStore = signalStore(
   { providedIn: 'root' },
   withState(initialState),
+  withMethods((store) => ({
+    toObject(): PlayerState {
+      return {
+        factionId: store.factionId(),
+        name: store.name(),
+        secondaire: store.secondaire(),
+      };
+    },
+  })),
 );

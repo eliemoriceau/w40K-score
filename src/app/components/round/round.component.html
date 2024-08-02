@@ -1,0 +1,31 @@
+<div class="grid grid-cols-7 gap-3">
+  <div class="font-extrabold text-4xl text-center flex items-center justify-center">
+    {{ roundNumber() }}
+  </div>
+  <div class="flex  items-center justify-center">
+    <input type="number" id="primary-score-input" aria-describedby="helper-text-explanation"
+           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+           placeholder="O" min="0" max="15" [ngModel]="primaryScore()" (ngModelChange)="primaryScore.set($event)"/>
+  </div>
+  <div class="col-span-4">
+    <div class="grid grid-cols-2 gap-1 items-center justify-center">
+      <div class="flex flex-col gap-1">
+        <app-secondary-selector [(selectedSecondary)]="firstSecondaryObjectif"/>
+        <input type="number" id="first-secondary-score-input" aria-describedby="helper-text-explanation"
+               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+               placeholder="O" min="0" max="15" [ngModel]="firstSecondaryScore()"
+               (ngModelChange)="firstSecondaryScore.set($event)"/>
+      </div>
+      <div class="flex flex-col gap-1">
+        <app-secondary-selector [(selectedSecondary)]="secondeSecondaryObjectif"/>
+        <input type="number" id="second-secondary-score-input" aria-describedby="helper-text-explanation"
+               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+               placeholder="O" min="0" max="15" [ngModel]="secondeSecondaryScore()"
+               (ngModelChange)="secondeSecondaryScore.set($event)"/>
+      </div>
+    </div>
+  </div>
+  <div class="flex items-center justify-center text-2xl">
+    {{ totalScore() }}
+  </div>
+</div>

@@ -2,8 +2,8 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ModalPreGameComponent } from '@app/components/modal-pre-game/modal-pre-game.component';
 import { FactionSelectorComponent } from '@app/components/faction-selector/faction-selector.component';
 import { FactionsService } from '@core/services/factions.service';
-import { Faction } from '@core/models';
 import { GameComponent } from '@app/components/game/game.component';
+import { SecondaryObjectifService } from '@app/core/services/secondaryObjectif.service';
 
 @Component({
   selector: 'app-home',
@@ -14,9 +14,10 @@ import { GameComponent } from '@app/components/game/game.component';
 })
 export default class HomeComponent implements OnInit {
   factionService = inject(FactionsService);
-  selectedFaction: Faction | undefined = undefined;
+  secondaryObjectifService = inject(SecondaryObjectifService);
 
   ngOnInit(): void {
     console.log(this.factionService.factions());
+    console.log(this.secondaryObjectifService.secondaryObjectifList());
   }
 }

@@ -1,28 +1,13 @@
 <div class="flex flex-col">
   <h1>Game</h1>
-  <div class="flex flex-row justify-around">
-    <div class="flex flex-col">
-      <div>
-        {{ playerOneStore.name() }}
-      </div>
-      <div>
-
-        {{ playerOneFaction()?.name }}
-      </div>
-      <div>
-        {{ playerOneStore.secondaire() }}
-      </div>
+  <div class="flex flex-row justify-around mx-4 gap-3">
+    <div class="flex flex-col max-w-xl w-full p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
+      <app-game-player-info [faction]="faction()" [player]="playerOneStore.toObject()"/>
+      <app-player-game/>
     </div>
-    <div class="flex flex-col">
-      <div>
-        {{ playerTwoStore.name() }}
-      </div>
-      <div>
-        {{ playerTwoFaction()?.name }}
-      </div>
-      <div>
-        {{ playerTwoStore.secondaire() }}
-      </div>
+    <div class="flex flex-col max-w-xl w-full p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
+      <app-game-player-info [faction]="faction()" [player]="playerTwoStore.toObject()"/>
+      <app-player-game/>
     </div>
   </div>
 
