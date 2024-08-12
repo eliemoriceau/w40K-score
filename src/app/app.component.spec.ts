@@ -1,10 +1,20 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { FactionGateway } from '@core/ports';
+import { FactionsService } from '@core/services/factions.service';
+import { FactionMockAdapter } from '@core/adapters/mock/factionMock.adapter';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
+      providers: [
+        FactionsService,
+        {
+          provide: FactionGateway,
+          useValue: FactionMockAdapter,
+        },
+      ],
     }).compileComponents();
   });
 

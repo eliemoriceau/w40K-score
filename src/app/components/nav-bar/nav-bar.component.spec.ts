@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavBarComponent } from './nav-bar.component';
+import { FactionsService } from '@core/services/factions.service';
+import { FactionGateway } from '@core/ports';
+import { FactionMockAdapter } from '@core/adapters/mock/factionMock.adapter';
 
 describe('NavBarComponent', () => {
   let component: NavBarComponent;
@@ -8,10 +11,16 @@ describe('NavBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NavBarComponent]
-    })
-    .compileComponents();
-    
+      imports: [NavBarComponent],
+      providers: [
+        FactionsService,
+        {
+          provide: FactionGateway,
+          useValue: FactionMockAdapter,
+        },
+      ],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(NavBarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

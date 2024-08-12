@@ -1,19 +1,18 @@
 <div class="flex flex-col gap-6">
   <div class="grid grid-cols-7 gap-3 border-b pb-1">
-    <div class="text-center">
-      Round
-    </div>
-    <div class="text-center">
-      Primaire
-    </div>
-    <div class="col-span-4 text-center">
-      Secondaire
-    </div>
-    <div class="text-center">
-      Total
-    </div>
+    <div class="text-center">Round</div>
+    <div class="text-center">Primaire</div>
+    <div class="col-span-4 text-center">Secondaire</div>
+    <div class="text-center">Total</div>
   </div>
   @for (round of rounds; track round; let roundIndex = $index) {
     <app-round [roundNumber]="roundIndex + 1"/>
   }
+  <div class="grid grid-cols-7 gap-3 border-t pb-1">
+    <div class="font-extrabold text-2xl">Total</div>
+    <div class="col-span-5"></div>
+    <div class="text-2xl text-center">
+      {{ totalPlayerScore() }}
+    </div>
+  </div>
 </div>

@@ -12,6 +12,5 @@ export class FactionsService implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.factions.set(await this.factionsGateway.getFactions());
-    console.log('Factions:', this.factions());
   }
 }

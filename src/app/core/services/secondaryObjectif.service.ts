@@ -17,13 +17,11 @@ export class SecondaryObjectifService implements OnInit {
     this.secondaryObjectifList.set(
       await this.secondaryObjectifGateway.getAllSecondaryObjectif(),
     );
-    console.log('SecondaryObjectif:', this.secondaryObjectifList());
   }
 
   async refresh() {
     this.secondaryObjectifList.set(
       await this.secondaryObjectifGateway.getAllSecondaryObjectif(),
     );
-    console.log('SecondaryObjectif refresh:', this.secondaryObjectifList());
   }
 }

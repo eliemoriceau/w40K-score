@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RoundComponent } from '@app/components/round/round.component';
 
 @Component({
@@ -10,4 +10,5 @@ import { RoundComponent } from '@app/components/round/round.component';
 })
 export class PlayerGameComponent {
   rounds = new Array(5);
+  totalPlayerScore = signal<number>(0);
 }
