@@ -1,4 +1,4 @@
-import { signalStore, withMethods, withState } from '@ngrx/signals';
+import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
 
 export type PlayerState = {
   name: string;
@@ -22,6 +22,9 @@ export const PlayerOneStore = signalStore(
         name: store.name(),
         secondaire: store.secondaire(),
       };
+    },
+    update(update: Partial<PlayerState>): void {
+      patchState(store, update);
     },
   })),
 );

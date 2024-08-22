@@ -8,7 +8,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { FactionsService } from '@core/services/factions.service';
-import { patchState } from '@ngrx/signals';
 import { PlayerOneStore } from '@core/store/player-one.store';
 import { PlayerTwoStore } from '@core/store/player-two.store';
 import { NgClass } from '@angular/common';
@@ -61,24 +60,24 @@ export class ModalPreGameComponent {
 
   constructor() {
     this.attName.valueChanges.subscribe((value) => {
-      patchState(this.playerOneStore, { name: value });
+      this.playerOneStore.update({ name: value });
     });
     this.attFaction.valueChanges.subscribe((value: number) => {
-      patchState(this.playerOneStore, { factionId: +value });
+      this.playerOneStore.update({ factionId: +value });
     });
     this.secondairePlayerOne.valueChanges.subscribe((value) => {
-      if (value) patchState(this.playerOneStore, { secondaire: value });
+      if (value) this.playerOneStore.update({ secondaire: value });
     });
 
     this.defName.valueChanges.subscribe((value) => {
-      patchState(this.playerTwoStore, { name: value });
+      this.playerTwoStore.update({ name: value });
     });
     this.defFaction.valueChanges.subscribe((value: number) => {
-      patchState(this.playerTwoStore, { factionId: +value });
+      this.playerTwoStore.update({ factionId: +value });
     });
 
     this.secondairePlayerTwo.valueChanges.subscribe((value) => {
-      if (value) patchState(this.playerTwoStore, { secondaire: value });
+      if (value) this.playerTwoStore.update({ secondaire: value });
     });
   }
 

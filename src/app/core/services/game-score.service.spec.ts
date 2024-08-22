@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { GameScoreService } from './game-score.service';
 
 describe('GameScoreService', () => {
