@@ -1,8 +1,8 @@
-import { TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
-import { FactionGateway } from '@core/ports';
-import { FactionsService } from '@core/services/factions.service';
-import { FactionMockAdapter } from '@core/adapters/mock/factionMock.adapter';
+import {TestBed} from '@angular/core/testing';
+import {AppComponent} from './app.component';
+import {FactionGateway} from '@core/ports';
+import {FactionsService} from '@core/services/factions.service';
+import {FactionMockAdapter} from '@core/adapters/mock/factionMock.adapter';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -27,6 +27,6 @@ describe('AppComponent', () => {
   it(`should have the 'score' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('score');
+    expect(app.title).toEqual('W40K Score');
   });
 });

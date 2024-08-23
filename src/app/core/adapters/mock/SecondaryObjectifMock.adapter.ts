@@ -1,7 +1,7 @@
-import { SecondaryObjectifGateway } from '@core/ports/secondaryObjectif.gateway';
-import { SecondaryObjectif } from '@core/models/secondaryObjectif.model';
-import vine from '@vinejs/vine';
-import { secondaryObjectifSchema } from '@core/schema/secondaryObjectif.schema';
+import {SecondaryObjectifGateway} from '@core/ports/secondaryObjectif.gateway';
+import {SecondaryObjectif} from '@core/models/secondaryObjectif.model';
+
+// import { secondaryObjectifSchema } from '@core/schema/secondaryObjectif.schema';
 
 export class SecondaryObjectifMockAdapter implements SecondaryObjectifGateway {
   private secondaryObjectifList: SecondaryObjectif[] = [
@@ -13,10 +13,11 @@ export class SecondaryObjectifMockAdapter implements SecondaryObjectifGateway {
   ];
 
   async getAllSecondaryObjectif(): Promise<SecondaryObjectif[]> {
-    return vine.validate({
-      schema: vine.array(secondaryObjectifSchema),
-      data: this.secondaryObjectifList,
-    });
+    // return vine.validate({
+    //   schema: vine.array(secondaryObjectifSchema),
+    //   data: this.secondaryObjectifList,
+    // });
+    return this.secondaryObjectifList;
   }
 
   getSecondaryObjectifById(id: string): Promise<SecondaryObjectif | null> {
