@@ -1,9 +1,11 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { GameComponent } from './game.component';
-import { FactionsService } from '@core/services/factions.service';
-import { FactionGateway } from '@core/ports';
-import { FactionMockAdapter } from '@core/adapters/mock/factionMock.adapter';
+import {GameComponent} from './game.component';
+import {FactionsService} from '@core/services/factions.service';
+import {FactionGateway} from '@core/ports';
+import {FactionMockAdapter} from '@core/adapters/mock/factionMock.adapter';
+import {SecondaryObjectifGateway} from "@core/ports/secondaryObjectif.gateway";
+import {SecondaryObjectifMockAdapter} from "@core/adapters/mock/SecondaryObjectifMock.adapter";
 
 describe('GameComponent', () => {
   let component: GameComponent;
@@ -18,6 +20,10 @@ describe('GameComponent', () => {
           provide: FactionGateway,
           useValue: FactionMockAdapter,
         },
+        {
+          provide: SecondaryObjectifGateway,
+          useClass: SecondaryObjectifMockAdapter
+        }
       ],
     }).compileComponents();
 
