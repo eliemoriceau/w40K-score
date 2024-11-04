@@ -3,11 +3,11 @@
   <div class="flex flex-row justify-around mx-4 gap-3">
     <div class="flex flex-col max-w-xl w-full p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
       <app-game-player-info [faction]="faction()" [player]="playerOneStore.toObject()"/>
-      <app-player-game/>
+      <app-player-game [playerName]="playerOneName()" />
     </div>
     <div class="flex flex-col max-w-xl w-full p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
       <app-game-player-info [faction]="faction()" [player]="playerTwoStore.toObject()"/>
-      <app-player-game/>
+      <app-player-game [playerName]="playerTwoName()" />
     </div>
   </div>
 
